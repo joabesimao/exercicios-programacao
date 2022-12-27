@@ -3,17 +3,35 @@
  *  Escreva ao final o vetor obtido.
  */
 
-var lista = new Array(16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0);
+const lista = new Array(
+  16,
+  15,
+  14,
+  13,
+  12,
+  11,
+  10,
+  9,
+  8,
+  7,
+  6,
+  5,
+  4,
+  3,
+  2,
+  1,
+  0
+);
 
-for (i = 0; i < 8; i++) {
-  comeco = lista[i];
+for (let i = 0; i < 8; i++) {
+  const comeco = lista[i];
+  const final = lista[16 - i];
 
-  final = lista[16 - i];
-  console.log("comeco =>" + comeco);
+  console.log("começo =>" + comeco);
   console.log("final =>" + final);
 
   lista[i] = final;
-
   lista[16 - i] = comeco;
 }
-console.log(lista);
+
+console.log("resultado", JSON.stringify(lista));
