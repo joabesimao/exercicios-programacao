@@ -10,6 +10,14 @@
  * BETO, BETA -> false
  */
 
+function imprimeAnagrama(resultado) {
+  if (resultado === true) {
+    return "é um anagrama";
+  } else {
+    return "nao é um anagrama";
+  }
+}
+
 function verificaAnagrama(nome1, nome2) {
   const arrayNome1 = [...nome1];
   const arrayNome2 = [...nome2];
@@ -17,11 +25,17 @@ function verificaAnagrama(nome1, nome2) {
   const novo = arrayNome2.filter((letra) => arrayNome1.includes(letra));
 
   if (novo.length === 4) {
-    return `a palavra ${nome2} é um anagrama da palavra ${nome1} !`;
+    return true;
   } else {
-    return `a palavra ${nome2} não é um anagrama da palavra ${nome1} !`;
+    return false;
   }
 }
+
+console.log(imprimeAnagrama(verificaAnagrama("PATO", "TITE")));
+console.log(imprimeAnagrama(verificaAnagrama("PATO", "TOPA")));
+console.log(imprimeAnagrama(verificaAnagrama("TATU", "TUTA")));
+console.log(imprimeAnagrama(verificaAnagrama("BETO", "BETO")));
+console.log(imprimeAnagrama(verificaAnagrama("BETO", "BETA")));
 
 console.log(verificaAnagrama("PATO", "TITE")); // false
 console.log(verificaAnagrama("PATO", "TOPA")); // true
