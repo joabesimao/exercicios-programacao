@@ -10,7 +10,14 @@
  * BETO, BETA -> false
  */
 
+function testaSeAEntradaEhTrueOuFalse(resultado) {
+  if (!resultado === true || !resultado === false) {
+    throw new Error("entrada tem que ser True ou False");
+  }
+}
+
 function imprimeAnagrama(resultado) {
+  testaSeAEntradaEhTrueOuFalse(resultado);
   if (resultado === true) {
     return "é um anagrama";
   } else {
