@@ -19,9 +19,15 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const segundoArray = [10, 20, 30, 40, 50, 60, 70, 80, 90];
 const terceiroArray = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
-const separaNumeros = (array, inicioPosicao, fimPosicao) => {
+const juntaArrayDeNumeros = (
+  array,
+  inicioPosicao,
+  fimPosicao,
+  arrayASerInserido
+) => {
   const pegaTerco = array.slice(inicioPosicao, fimPosicao);
-  return pegaTerco;
+  const insereNumeros = insereNoArray(pegaTerco, arrayASerInserido);
+  return insereNumeros;
 };
 
 const insereNoArray = (result, arrayParaInserir) => {
@@ -29,12 +35,11 @@ const insereNoArray = (result, arrayParaInserir) => {
 };
 
 let arrayNovo = [];
-const inserirPrimeirosNumeros = separaNumeros(array, 0, 3);
-const inserirSegundosNumeros = separaNumeros(segundoArray, 3, 6);
-const inserirTerceiros = separaNumeros(terceiroArray, 6, 9);
 
-insereNoArray(inserirPrimeirosNumeros, arrayNovo);
-insereNoArray(inserirSegundosNumeros, arrayNovo);
-insereNoArray(inserirTerceiros, arrayNovo);
+juntaArrayDeNumeros(array, 0, 3, arrayNovo);
+juntaArrayDeNumeros(segundoArray, 3, 6, arrayNovo);
+juntaArrayDeNumeros(terceiroArray, 6, 9, arrayNovo);
 
 console.log(arrayNovo);
+
+
