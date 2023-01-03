@@ -10,14 +10,7 @@
  * BETO, BETA -> false
  */
 
-function testaSeAEntradaEhTrueOuFalse(resultado) {
-  if (!resultado === true || !resultado === false) {
-    throw new Error("entrada tem que ser True ou False");
-  }
-}
-
 function imprimeAnagrama(resultado) {
-  testaSeAEntradaEhTrueOuFalse(resultado);
   if (resultado === true) {
     return "é um anagrama";
   } else {
@@ -43,9 +36,3 @@ console.log(imprimeAnagrama(verificaAnagrama("PATO", "TOPA")));
 console.log(imprimeAnagrama(verificaAnagrama("TATU", "TUTA")));
 console.log(imprimeAnagrama(verificaAnagrama("BETO", "BETO")));
 console.log(imprimeAnagrama(verificaAnagrama("BETO", "BETA")));
-
-console.log(verificaAnagrama("PATO", "TITE")); // false
-console.log(verificaAnagrama("PATO", "TOPA")); // true
-console.log(verificaAnagrama("TATU", "TUTA")); // true
-console.log(verificaAnagrama("BETO", "BETO")); // true
-console.log(verificaAnagrama("BETO", "BETA")); // false

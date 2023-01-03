@@ -16,7 +16,14 @@ let array = [
   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0,
 ];
 
+const validaOArray = (array) => {
+  if (array.length === 0) {
+    throw new Error("o array nao pode ser vazio");
+  }
+};
+
 const compactaArray = (array) => {
+  validaOArray(array);
   let result = [];
   let zeros = [];
   for (let i = 0; i < array.length; i++) {
