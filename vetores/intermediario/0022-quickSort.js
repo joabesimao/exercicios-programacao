@@ -1,32 +1,39 @@
-//[7, -2, 4, 1, 6, 0, -4, 2];
+//[7, -2, 4, 1, 6, 0, -4, 2]; [-4,-2,0,1] [2,4,6,7]
 
-//dividir o array entre os numeros maiores e os menores que o pivo
-const partition = (arr, start, end) => {
-  const valorDoPivo = arr[end];
-  let indexPivo = start;
-
-  for (let i = start; i < end; i++) {
-    if (arr[i] < valorDoPivo) {
-      [arr[i], arr[indexPivo]] = [arr[indexPivo], arr[i]];
-
-      indexPivo++;
-    }
-  }
-  [arr[indexPivo], arr[end]] = [arr[end], arr[indexPivo]];
-  return indexPivo;
+const trocaDeLugar = (lista, posicao1, posicao2) => {
+  [lista[posicao1], lista[posicao2]] = [lista[posicao2], lista[posicao1]];
 };
 
-const quickSortRecursive = (arr, start, end) => {
+//dividir o lista entre os numeros maiores e os menores que o pivo
+const colocaOPivoNoIndexDele = (lista, start, end) => {
+  const indexAtualDoPivo = end;
+  const valorDoPivo = lista[indexAtualDoPivo]; // 2
+  let indexOndeOPivoDeveEstar = start; //0
+
+  for (let i = start; i < end; i++) {
+    const valorAtual = lista[i];
+    if (valorAtual < valorDoPivo) {
+      trocaDeLugar(lista, i, indexOndeOPivoDeveEstar);
+      indexOndeOPivoDeveEstar++;
+    }
+  }
+  trocaDeLugar(lista, indexAtualDoPivo, indexOndeOPivoDeveEstar);
+
+  const indexDoPivo = indexOndeOPivoDeveEstar;
+  return indexDoPivo;
+};
+
+const quickSortRecursive = (lista, start, end) => {
   if (start >= end) {
     return;
   }
 
-  let index = partition(arr, start, end);
+  let indexDoPivo = colocaOPivoNoIndexDele(lista, start, end);
 
-  quickSortRecursive(arr, start, index - 1);
-  quickSortRecursive(arr, index + 1, end);
+  quickSortRecursive(lista, start, indexDoPivo - 1);
+  quickSortRecursive(lista, indexDoPivo + 1, end);
 };
 
-const array = [7, -2, 4, 1, 6, 0, -4, 2];
-quickSortRecursive(array, 0, array.length - 1);
-console.log(array);
+const lista = [7, -2, 4, 1, 6, 0, -4, 2];
+quickSortRecursive(lista, 0, lista.length - 1);
+console.log(lista);
