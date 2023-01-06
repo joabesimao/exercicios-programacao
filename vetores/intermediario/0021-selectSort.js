@@ -19,5 +19,3 @@ const selectionSort = (array) => {
   }
   return array;
 };
-
-console.log(selectionSort(arrayDeNumeros));
