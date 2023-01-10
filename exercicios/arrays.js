@@ -13,7 +13,7 @@ const listaLivros = [
   },
   {
     titulo: "Java",
-    preco: 20,
+    preco: 200,
   },
   {
     titulo: "PHP",
